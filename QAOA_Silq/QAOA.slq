@@ -1,0 +1,48 @@
+
+def main()
+{
+    N:=5;
+
+    x:=0:𝔹;
+    return H(x);
+    // thetas=:=0:ℝ[5];
+    // return QAOA(thetas);
+}
+
+def QAOA[n:!ℕ](const g_edges:!ℕ[],  const thetas:!ℝ[])
+{
+    // Prepare initial state of |0...0>
+    x:=0:int[n];
+
+    // Hadamard on all qubits
+    for i in 0..n 
+    {
+        x[i]:=H(x[i]);
+    }
+
+    reps:= n div 2;
+
+    for rep in 0..reps
+    {
+        // Apply problem unitary
+        e:=0;
+        while e < 2*n
+        {
+            // Apply Rzz for our gammas
+            x[e]:=rotZ(2*thetas[rep], x[e]);
+            x[e+1]:=rotZ(2*thetas[rep], x[e+1]);
+
+            e+=2;
+        }
+
+        // Apply mixer unitary
+        for i in reps..n
+        {
+            // Apply Rx for our betas
+            x[i]:=rotX(2 * thetas[rep], x[i]);
+        }
+    }
+
+
+    return measure(x);
+}
