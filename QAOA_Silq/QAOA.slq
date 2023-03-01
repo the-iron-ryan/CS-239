@@ -1,18 +1,14 @@
+n:=6;
+betas:=[2.72176627];
+gammas:=[0.35475932];
 
-def main()
-{
-    N:=5;
+n_graph_edges:=7;
+graph:=[[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [0, 4], [5,1]];
 
-    x:=0:𝔹;
-    return H(x);
-    // thetas=:=0:ℝ[5];
-    // return QAOA(thetas);
-}
-
-def QAOA[n:!ℕ](const g_edges:!ℕ[],  const thetas:!ℝ[])
+def QAOA[n:!ℕ](const g_edges:!ℕ[][],  const betas:!ℝ[], const gammas:!ℝ[]) mfree
 {
     // Prepare initial state of |0...0>
-    x:=0:int[n];
+    x:=vector(n,0:𝔹);
 
     // Hadamard on all qubits
     for i in 0..n 
@@ -20,29 +16,46 @@ def QAOA[n:!ℕ](const g_edges:!ℕ[],  const thetas:!ℝ[])
         x[i]:=H(x[i]);
     }
 
-    reps:= n div 2;
+    val:=0:𝔹;
+    reps:=1;
+    beta:= 2*betas[0];
+    gamma:= 2*gammas[0];
 
-    for rep in 0..reps
+    for rep in [0..reps)
     {
-        // Apply problem unitary
-        e:=0;
-        while e < 2*n
+        // Apply problem unitary. Tag each neighboring node with a Z rotation
+        for i in [0..n_graph_edges)
         {
-            // Apply Rzz for our gammas
-            x[e]:=rotZ(2*thetas[rep], x[e]);
-            x[e+1]:=rotZ(2*thetas[rep], x[e+1]);
+            edge:=g_edges[i];
+            node1:=edge[0];
+            node2:=edge[1];
 
-            e+=2;
+            // Apply CNOT RZ on x[node2] if x[node1] is 1
+            // NOTE: Need to swap x[node1] to a temp register since we cannot consume the state
+            (val, x[node1]):=(x[node1], val);
+            if val
+            {
+                x[node2]:=X(x[node2]);
+                x[node2]:=rotZ(gamma, x[node2]);
+                x[node2]:=X(x[node2]);
+            }
+            // Swap back
+            (x[node1], val):=(val, x[node1]);
         }
 
         // Apply mixer unitary
-        for i in reps..n
+        for i in [0..n)
         {
             // Apply Rx for our betas
-            x[i]:=rotX(2 * thetas[rep], x[i]);
+            x[i]:=rotX(beta, x[i]);
         }
     }
 
+    forget(val=0);
+    return x;
+}
 
-    return measure(x);
+def main()
+{
+    return QAOA[n](graph, betas, gammas);
 }
