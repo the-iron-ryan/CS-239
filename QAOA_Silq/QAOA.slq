@@ -1,11 +1,40 @@
+// ============================================================================
+//                               QAOA MAX CUT
+// ============================================================================
+// Author: 	Ryan Dougherty
+// UUID:    606085269
+// Date: 	3/1/2023
+// 
+// 
+// The following code is a QAOA circuit for the Max Cut problem. The circuit 
+// is parameterized by the number of qubits, the number of repetitions, the
+// number of edges in the graph, and the graph edges.
+
+
+// ============================================================================
+//                                 PARAMETERS
+// ============================================================================
+
+// Number of qubits
 n:=6;
+
+// Number of repetitions of the QAOA circuit
+n_neps:=1;
+
+// Betas and gammas for each repetition. Note: length of each needs to be n_neps
 betas:=[2.72176627];
 gammas:=[0.35475932];
 
+// Number of edges in the graph
 n_graph_edges:=7;
+// Graph edges for Max Cut problem
 graph:=[[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [0, 4], [5,1]];
 
-def QAOA[n:!ℕ](const g_edges:!ℕ[][],  const betas:!ℝ[], const gammas:!ℝ[]) mfree
+
+// ============================================================================
+//                              MAX CUT CIRCUIT
+// ============================================================================
+def QAOA_MaxCut[n:!ℕ](const g_edges:!ℕ[][],  const betas:!ℝ[], const gammas:!ℝ[], const reps:!ℕ) mfree
 {
     // Prepare initial state of |0...0>
     x:=vector(n,0:𝔹);
@@ -17,13 +46,12 @@ def QAOA[n:!ℕ](const g_edges:!ℕ[][],  const betas:!ℝ[], const gammas:!ℝ[
     }
 
     val:=0:𝔹;
-    reps:=1;
     beta:= 2*betas[0];
     gamma:= 2*gammas[0];
 
     for rep in [0..reps)
     {
-        // Apply problem unitary. Tag each neighboring node with a Z rotation
+        // Apply problem unitary. Tag each neighboring node with a CNOT Z rotation
         for i in [0..n_graph_edges)
         {
             edge:=g_edges[i];
@@ -51,11 +79,14 @@ def QAOA[n:!ℕ](const g_edges:!ℕ[][],  const betas:!ℝ[], const gammas:!ℝ[
         }
     }
 
+    // Uncompute ancilla quibit
     forget(val=0);
+
     return x;
 }
 
 def main()
 {
-    return QAOA[n](graph, betas, gammas);
+    // Run and return the state vector from QAOA_MaxCut
+    return QAOA_MaxCut[n](graph, betas, gammas, n_neps);
 }
