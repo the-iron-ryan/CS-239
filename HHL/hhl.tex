@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{HHL Algorithm}
+\author{Ryan Dougherty}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{HHL Algorithm}
+The HHL Algorithm is a quantum algorithm that can be used to solve linear systems of equations. 
+The algorithm is based on the quantum Fourier transform and the quantum phase estimation algorithm. The algorithm is based on the following equation:
+\[
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\
+x_2\\
+\vdots\\
+x_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1\\
+b_2\\
+\vdots\\
+b_n
+\end{bmatrix}
+\]
+
+To start, we crate a matrix $A$ which is a hermition matrix. Lets do a 2 qubit example:
+\[
+A = \begin{bmatrix}
+ 1/2 & -1/4\\
+-1/4 &  1/2
+\end{bmatrix}
+\]
+
+This matrix $A$ has the following eigenvalues:
+\[
+\lambda_1 = \frac{3}{4}\\
+\lambda_2 = \frac{1}{4}
+\]
+
+And the following eigenvectors:
+\[
+v_1 = \begin{bmatrix}
+-1\\
+1
+\end{bmatrix}\\
+v_2 = \begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\]
+
+We then create a vector $b$ which is a vector of length $2^n$ where $n$ is the number of qubitss:
+\[
+b = \begin{bmatrix}
+1\\
+0
+\end{bmatrix}
+\]
+
+Since $A$ is a hermition matrix, it has the following spectral decomposition:
+\[
+A = \sum_{i=1}^n \lambda_i |v_i\rangle \langle v_i|
+\]
+We can also write $A^{-1}$ as:
+\[
+A^{-1} = \sum_{i=1}^n \frac{1}{\lambda_i} |v_i\rangle \langle v_i|
+\]
+$A$ is both invertible and Hermition, so we can write $b$ as:
+\[
+b = \sum_{i=1}^n b_i |v_i\rangle
+\]
+Therefore our solution to $x$ is:
+\[
+|x\rangle = \sum_{i=1}^n \frac{b_i}{\lambda_i} |v_i\rangle
+\]
+
+To start our algorithm, we load $b$ into the last registers and run QPE on $A^{-1}$ to get the eigenvalues of $A^{-1}$.
+QPE for the 2 qubit case will have a binary approximation of $\frac{\lambda_i t}{2\pi}$. This will give a 2 qubit approximation
+of:
+
+
+
+
+\end{document}
+
+

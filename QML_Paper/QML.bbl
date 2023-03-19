@@ -1,0 +1,23 @@
+\begin{thebibliography}{1}
+
+\bibitem{adachi_henderson_2021}
+Steven~H Adachi and Maxwell~P Henderson.
+\newblock What is quantum annealing?, 2021.
+
+\bibitem{farhi2018classification}
+Edward Farhi and Hartmut Neven.
+\newblock Classification with quantum neural networks on near term processors,
+  2018.
+
+\bibitem{Huang2021}
+Hsin-Yuan Huang, Michael Broughton, Masoud Mohseni, Ryan Babbush, Sergio Boixo,
+  Hartmut Neven, and Jarrod~R. McClean.
+\newblock Power of data in quantum machine learning.
+\newblock {\em Nature Communications}, 12(1):2631, May 2021.
+
+\bibitem{Wang_2017}
+Guoming Wang.
+\newblock Quantum algorithm for linear regression.
+\newblock {\em Physical Review A}, 96(1), jul 2017.
+
+\end{thebibliography}
