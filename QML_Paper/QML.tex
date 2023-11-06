@@ -36,10 +36,10 @@ Now that I've gone over the classical approach to machine learning, let's discus
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{QuantumKernel.png}
-\caption{Projection of classical machine learning methods into a quantum hilbert space. Where $g$ is a geometric quantity which quantifies the potential for quantum advantage.}
+\caption{Projection of classical machine learning methods into a quantum hilbert space. Where $g$ is a geometric quantity which quantifies the potential for quantum advantage.\cite{mcclean_huang_2021}}
 \end{figure}
 
-I want to dissect two different approaches to quantum machine learning done in recent years. One such approach is quantum neural networks (QNN), which uses a quantum circuit to create a neural network similar to its classical counterpart. The other is quantum linear regression (QLR) which takes advantage of various algorithms we've learned throughout the course - such as the HHL algorithm, quantum fourier transform, and amplitude amplification.
+I want to dissect two different approaches to quantum machine learning done in recent years. One such approach is quantum neural networks (QNN), which uses a quantum circuit to create a neural network similar to its classical counterpart. The other is quantum linear regression (QLR) which takes advantage of various algorithms we've learned throughout the course - such as the HHL algorithm, quantum fourier transform, and phase estimation.
 \subsection*{Quantum Neural Networks (QNN)}
 In 2018 Google and MIT demonstrated the creation of a small quantum neural network on a quantum simulator. \cite{farhi2018classification} This algorithm was also designed with near-team quantum computers in mind, being able to run on super conducting chips once their error rate and fidelity is further improved.
 
@@ -57,7 +57,29 @@ This QNN algorithm operates on N+1 qubits of input, where a single additional qu
 Different values of thetas can be sampled from neighboring unitaries and the loss function can be minimized. This process is known as gradient descent. The algorithm is summarized in the figure above.
 
 \subsection*{Quantum Linear Regression (QLR)}
-Quantum linear regression proves to provide a polynomial speedup over its classical counterpart. This was achieved by a 2017 paper by Guoming Wang from University of Maryland. \cite{Wang_2017} The algorithm is based mostly on the use of the HHL algorithm, which we learned about in class. This is due to the fact that linear regression relies on solving a system of linear equations to best fit the input data.
+Quantum linear regression proves to provide a polynomial speedup over its classical counterpart. This was achieved by a 2017 paper by Guoming Wang from University of Maryland. \cite{Wang_2017} The algorithm is based mostly on the use of the HHL algorithm, which we learned about in class. This is due to the fact that linear regression relies on solving a system of linear equations to best fit the input data. \\
+The HHL algorithm works for a linear system in the form of $Ax = b$, where $A$ is a Hermitian matrix, $x$ is a vector of unknowns, and $b$ is the output state we're trying to solve for. Since $A$ is Hermitian, it can be decomposed into a sum of its eigenvalues and eigenvectors like so:
+\begin{equation}
+    A = \sum_{i=1}^n \lambda_i |v_i\rangle \langle v_i|
+\end{equation} 
+Since $A$ is also invertible, we can write $A^{-1}$ as:
+\begin{equation}
+    A^{-1} = \sum_{i=1}^n \frac{1}{\lambda_i} |v_i\rangle \langle v_i|
+\end{equation}
+$|b\rangle$ can be written as a linear combination of the eigenvectors of $A$:
+\begin{equation}
+    |b\rangle = \sum_{i=1}^n \alpha_i |v_i\rangle
+\end{equation}
+Therefore we can simply solve for $|x\rangle$ by multiplying $A^{-1}$ by $|b\rangle$:
+\begin{equation}
+    |x\rangle = \sum_{i=1}^n \frac{\langle u_i | b \rangle }{\lambda_i} |v_i\rangle
+\end{equation}
+Thus, we can construct a quantum circuit that solves for $|x\rangle$ by first preparing the state $|b\rangle$ and extracting its eigenvalues with the quantum phase estimation algorithm; This will encode the eigenvalues into a quantum state. Applying eigenvalue inversion gives us the inverted eigenvalues, which can be converted back into amplitudes for measurement using an inverted form of the phase estimation algorithm. This can be done exponentially faster than a classical algorithm and provides a polynomial speedup for QLR.\cite{palsberg_2022}\cite{Wang_2017} The HHL algorithm is summarized in the figure below.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{HHL_Algo.png}
+\caption{HHL algorithm for solving a linear system of equations. \cite{palsberg_2022}}
+\end{figure}
 
 \subsection*{Quantum Annealing}
 \begin{figure}[h]
@@ -65,7 +87,7 @@ Quantum linear regression proves to provide a polynomial speedup over its classi
 \includegraphics[width=1\textwidth]{QuantumAnnealing.png}
 \caption{Quantum }
 \end{figure}
-An additional approach to quantum machine learning is quantum annealing. Quantum annealing takes advantage of the fact that quantum systems follow the laws of thermodynamics. Overtime, a quantum system will decay into its lowest state of energy - known as the ground state. This means that the global minima of a function can be mapped to the ground state of a quantum system. This is done by encoding the function as a Hamiltonian and then running the system through a quantum annealer. The company D-Wave Systems has worked to develop quantum annealers that can be used to do do linear regression and solve specific optimization problems.\cite{adachi_henderson_2021}
+An additional approach to quantum machine learning is quantum annealing. Quantum annealing takes advantage of the fact that quantum systems follow the laws of thermodynamics. Overtime, a quantum system will decay into its lowest state of energy - known as the ground state. This means that the global minima of a function can be mapped to the ground state of a quantum system. This is done by encoding the function as a Hamiltonian and then running the system through a quantum annealer. The company D-Wave Systems has worked to develop quantum annealers that can be used to do do linear regression and solve specific optimization problems.\cite{adachi_henderson_2021} \cite{date_potok_2021}
 
 
 % OUTLINE:\\

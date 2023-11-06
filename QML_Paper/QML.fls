@@ -573,6 +573,11 @@ INPUT ./QNN_Algo.png
 INPUT QNN_Algo.png
 INPUT ./QNN_Algo.png
 INPUT ./QNN_Algo.png
+INPUT ./HHL_Algo.png
+INPUT ./HHL_Algo.png
+INPUT HHL_Algo.png
+INPUT ./HHL_Algo.png
+INPUT ./HHL_Algo.png
 INPUT ./QuantumAnnealing.png
 INPUT ./QuantumAnnealing.png
 INPUT QuantumAnnealing.png
@@ -588,6 +593,7 @@ INPUT ./QML.out
 INPUT ./QML.out
 INPUT /usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb

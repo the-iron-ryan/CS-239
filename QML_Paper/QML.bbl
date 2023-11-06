@@ -4,6 +4,11 @@
 Steven~H Adachi and Maxwell~P Henderson.
 \newblock What is quantum annealing?, 2021.
 
+\bibitem{date_potok_2021}
+Prasanna Date and Thomas Potok.
+\newblock Adiabatic quantum linear regression.
+\newblock {\em Scientific Reports}, 11(1), 2021.
+
 \bibitem{farhi2018classification}
 Edward Farhi and Hartmut Neven.
 \newblock Classification with quantum neural networks on near term processors,
@@ -14,6 +19,15 @@ Hsin-Yuan Huang, Michael Broughton, Masoud Mohseni, Ryan Babbush, Sergio Boixo,
   Hartmut Neven, and Jarrod~R. McClean.
 \newblock Power of data in quantum machine learning.
 \newblock {\em Nature Communications}, 12(1):2631, May 2021.
+
+\bibitem{mcclean_huang_2021}
+Jarrod McClean and Hsin-Yuan Huang.
+\newblock Quantum machine learning and the power of data, Jun 2021.
+
+\bibitem{palsberg_2022}
+Jens Palsberg.
+\newblock Quantum algorithms solving linear equations.
+\newblock {\em Quantum Algorithms Solving Linear Equations}, Apr 2022.
 
 \bibitem{Wang_2017}
 Guoming Wang.

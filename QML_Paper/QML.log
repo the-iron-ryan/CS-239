@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.1)  19 MAR 2023 09:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.3.1)  19 MAR 2023 11:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -297,7 +297,7 @@ Package pdftex.def Info: QuantumKernel.png  used on input line 38.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<QNN_Algo.png, id=18, 1451.4225pt x 669.50125pt>
+<QNN_Algo.png, id=20, 1451.4225pt x 669.50125pt>
 File: QNN_Algo.png Graphic file (type png)
 <use QNN_Algo.png>
 Package pdftex.def Info: QNN_Algo.png  used on input line 48.
@@ -306,29 +306,34 @@ Package pdftex.def Info: QNN_Algo.png  used on input line 48.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./QuantumKernel.png>]
-<QuantumAnnealing.png, id=39, 2460.19125pt x 536.0025pt>
+[3 <./QuantumKernel.png>] [4 <./QNN_Algo.png>]
+<HHL_Algo.png, id=55, 802.49812pt x 252.945pt>
+File: HHL_Algo.png Graphic file (type png)
+<use HHL_Algo.png>
+Package pdftex.def Info: HHL_Algo.png  used on input line 80.
+(pdftex.def)             Requested size: 350.99762pt x 110.63614pt.
+<QuantumAnnealing.png, id=57, 2460.19125pt x 536.0025pt>
 File: QuantumAnnealing.png Graphic file (type png)
 <use QuantumAnnealing.png>
-Package pdftex.def Info: QuantumAnnealing.png  used on input line 65.
+Package pdftex.def Info: QuantumAnnealing.png  used on input line 87.
 (pdftex.def)             Requested size: 390.0pt x 84.96881pt.
- [4 <./QNN_Algo.png> <./QuantumAnnealing.png>] [5] (./QML.bbl [6]) [7] (./QML.aux)
+ [5 <./HHL_Algo.png (PNG copy)> <./QuantumAnnealing.png>] [6] (./QML.bbl [7]) [8] (./QML.aux)
 Package rerunfilecheck Info: File `QML.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9439 strings out of 478238
- 144546 string characters out of 5850457
- 435940 words of memory out of 5000000
- 27531 multiletter control sequences out of 15000+600000
+ 9458 strings out of 478238
+ 144836 string characters out of 5850457
+ 436052 words of memory out of 5000000
+ 27540 multiletter control sequences out of 15000+600000
  478706 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,6n,63p,763b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on QML.pdf (7 pages, 848560 bytes).
+ 60i,7n,63p,768b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on QML.pdf (8 pages, 915398 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 30 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 156 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
